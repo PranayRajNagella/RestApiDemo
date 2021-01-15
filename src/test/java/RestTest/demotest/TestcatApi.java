@@ -10,7 +10,7 @@ import static io.restassured.RestAssured.*;
 
 import java.util.HashMap;
 
-public class TestcatApi {
+public class TestcatApi extends BaseTest {
 	
 	@Test()
 	public void testApi()
