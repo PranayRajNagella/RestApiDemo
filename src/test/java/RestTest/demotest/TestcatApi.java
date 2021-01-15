@@ -3,6 +3,7 @@ package RestTest.demotest;
 import org.testng.annotations.Test;
 
 import io.restassured.RestAssured;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.*;
@@ -27,8 +28,9 @@ public class TestcatApi {
 		Response response=given().log().all().queryParams(QueryMap).headers(headerMap).when().get("/facts")
 				.then().log().all().assertThat().statusCode(200).extract().response();
 		String resp=response.asString();
-		
 		System.out.println(resp);
+		JsonPath jp=new JsonPath(resp);
+     	System.out.println(jp.getString("_id"));
 	}
 
 }
